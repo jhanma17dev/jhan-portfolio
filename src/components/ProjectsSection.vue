@@ -155,7 +155,9 @@ const projects = reactive([
 ]);
 
 function isHidden(index) {
-  return index < shownIndex.value || index >= shownIndex.value + showQuantity.value;
+  return (
+    index < shownIndex.value || index >= shownIndex.value + showQuantity.value
+  );
 }
 
 function nextProject() {
@@ -175,7 +177,7 @@ function prevProject() {
 }
 
 .project-card {
-  height: calc(68vw / 3 * 1.4 + 80px);
+  height: fit-content;
   box-sizing: border-box;
   border: #fe5944 16px solid;
   background-color: #f04b38;
@@ -194,11 +196,12 @@ function prevProject() {
 }
 
 .project-img {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 
 .image-container {
+  position: relative;
   border: solid 12px rgba(255, 255, 255, 1);
   border-radius: 12px;
 }
